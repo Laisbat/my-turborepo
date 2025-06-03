@@ -123,7 +123,6 @@ When adding a new file, ensure that its specifier is defined in `package.json` f
       "import": "./dist/button.mjs",
       "require": "./dist/button.js"
     }
-    // Add new component exports here
   }
 }
 ```
@@ -134,13 +133,13 @@ Storybook provides us with an interactive UI playground for our components. This
 
 - Use Vite to bundle stories instantly (in milliseconds)
 - Automatically find any stories inside the `stories/` folder
-- Support using module path aliases like `@acme/ui` for imports
+- Support using module path aliases like `@repo/ui` for imports
 - Write MDX for component documentation pages
 
 For example, here's the included Story for our `Button` component:
 
 ```js:apps/docs/stories/button.stories.mdx
-import { Button } from '@acme/ui/button';
+import { Button } from '@repo/ui/button';
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
 <Meta title="Components/Button" component={Button} />
@@ -193,9 +192,9 @@ When you push your code to GitHub, the [GitHub Action](https://github.com/change
 turbo run build --filter=docs^... && changeset publish
 ```
 
-Turborepo runs the `build` script for all publishable packages (excluding docs) and publishes the packages to npm. By default, this example includes `acme` as the npm organization. To change this, do the following:
+Turborepo runs the `build` script for all publishable packages (excluding docs) and publishes the packages to npm. By default, this example includes `repo` as the npm organization. To change this, do the following:
 
-- Rename folders in `packages/*` to replace `acme` with your desired scope
+- Rename folders in `packages/*` to replace `repo` with your desired scope
 - Search and replace `acme` with your desired scope
 - Re-run `pnpm install`
 
