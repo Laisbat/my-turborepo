@@ -16,10 +16,12 @@
     "clean": {
       "cache": false
     },
+    "test": {
+      "dependsOn": ["transit", "@repo/vitest-config#build"],
+      "outputs": ["coverage.json"]
+    },
     "preview-storybook": {
-      "dependsOn": [
-        "^build"
-      ],
+      "dependsOn": ["^build"],
       "cache": false
     }
   }

@@ -11,23 +11,28 @@
     "lint": "eslint ./stories/*.stories.tsx --max-warnings 0"
   },
   "dependencies": {
-    "@acme/ui": "*",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@repo/ui": "*",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
-    "@storybook/addon-actions": "^8.2.6",
-    "@storybook/addon-essentials": "^8.2.6",
-    "@storybook/addon-links": "^8.2.6",
-    "@storybook/react": "^8.2.6",
-    "@storybook/react-vite": "^8.2.6",
-    "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.57.0",
-    "serve": "^14.2.1",
-    "storybook": "^8.2.6",
     "@repo/typescript-config": "*",
-    "typescript": "5.5.4",
-    "vite": "^5.1.4"
+    "@storybook/addon-a11y": "^9.0.1",
+    "@storybook/addon-docs": "^9.0.1",
+    "@storybook/addon-links": "^9.0.1",
+    "@storybook/addon-onboarding": "^9.0.1",
+    "@storybook/addon-vitest": "^9.0.1",
+    "@storybook/react-vite": "^9.0.1",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^9.25.0",
+    "eslint-plugin-storybook": "^9.0.1",
+    "serve": "^14.2.1",
+    "storybook": "^9.0.1",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5"
+  },
+  "overrides": {
+    "storybook": "$storybook"
   }
 }
