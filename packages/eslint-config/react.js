@@ -12,6 +12,7 @@ const project = resolve(process.cwd(), "tsconfig.json");
  */
 
 module.exports = {
+  files: ['**/*.ts', '**/*.tsx','**/*.test.ts', '**/*.test.tsx', '**/*.spec.ts', '**/*.spec.tsx', 'vitest.d.ts'],
   extends: [
     "@vercel/style-guide/eslint/browser",
     "@vercel/style-guide/eslint/typescript",

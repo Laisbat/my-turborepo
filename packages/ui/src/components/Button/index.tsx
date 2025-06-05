@@ -1,16 +1,10 @@
-import * as React from "react";
+import type { ButtonProps } from "@mui/material";
+import { Button as MuiButton } from "@mui/material";
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
-}
-
-export function Button({ children, ...other }: ButtonProps): React.JSX.Element {
+export const Button = ({ children, ...props }: ButtonProps) => {
   return (
-    <button type="button" {...other}>
+    <MuiButton variant="contained" {...props}>
       {children}
-    </button>
+    </MuiButton>
   );
-}
-
-Button.displayName = "Button";
+};

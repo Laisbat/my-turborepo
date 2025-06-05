@@ -10,8 +10,9 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo run build --filter=docs^... && changeset publish",
+    "storybook:build": "turbo run storybook:build",
     "preview-storybook": "turbo run preview-storybook",
-    "test": "turbo run test"
+    "test": "turbo run test --filter=@repo/ui"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",

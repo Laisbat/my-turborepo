@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "sideEffects": false,
   "license": "MIT",
+  "description": "UI components for the repository",
+  "type": "module",
   "exports": {
     ".": {
       "types": "./src/index.ts",
@@ -14,6 +16,8 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint . --max-warnings 0",
+    "format": "prettier --check .",
+    "check-types": "tsc --noEmit",
     "clean": "rm -rf .turbo node_modules dist",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage"
@@ -25,6 +29,7 @@
     "@tailwindcss/cli": "^4.1.8",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
+    "@types/jest": "^29.5.14",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
     "@vitejs/plugin-react": "^4.5.0",
@@ -41,6 +46,8 @@
     "vitest": "^3.2.0"
   },
   "dependencies": {
+    "-": "^0.0.1",
+    "@mui/material": "^7.1.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
