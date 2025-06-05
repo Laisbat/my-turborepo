@@ -31,7 +31,7 @@ export const baseTheme = createTheme({
           src: local('Caixa'), local('Caixa-LightItalic'), url(${CaixaLightItalicWoff2}) format("woff2");
           font-weight: 300;
           font-style: italic;
-          font-display: swap;
+          font-display: swap; 
         }
         @font-face {
           font-family: "Caixa";
