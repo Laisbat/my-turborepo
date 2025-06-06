@@ -18,7 +18,7 @@ export const baseTheme = createTheme({
   },
   components: {
     MuiCssBaseline: {
-      styleOverrides: `
+      styleOverrides: ` 
         @font-face {
           font-family: "Caixa";
           src: local('Caixa'), local('Caixa-Light'), url(${CaixaLightWoff2}) format("woff2");

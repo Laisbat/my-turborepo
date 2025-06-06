@@ -1,1 +1,1 @@
-import * from "./theme";
+export * from "./theme";

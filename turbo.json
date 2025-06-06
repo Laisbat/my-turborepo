@@ -23,8 +23,7 @@
     },
     "preview-storybook": {
       "dependsOn": ["build"],
-      "outputs": [],
-      "persistent": true
+      "cache": false
     },
     "storybook:build": {
       "dependsOn": ["build"],
