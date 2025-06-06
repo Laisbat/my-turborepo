@@ -6,6 +6,8 @@
       "outputs": ["dist/**", ".next/**", "storybook-static/**"]
     },
     "dev": {
+      "dependsOn": [],
+      "outputs": [],
       "cache": false,
       "persistent": true
     },

@@ -10,8 +10,8 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo run build --filter=docs^... && changeset publish",
-    "storybook:build": "turbo run storybook:build",
-    "preview-storybook": "turbo run preview-storybook",
+    "storybook:build": "turbo run storybook:build --workspace=apps/docs",
+    "preview-storybook": "npm run dev --workspace=apps/docs",
     "test": "turbo run test --filter=@repo/ui"
   },
   "devDependencies": {
