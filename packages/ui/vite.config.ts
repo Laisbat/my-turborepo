@@ -1,9 +1,34 @@
 /// <reference types="vitest" />
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), dts()],
+  build: {
+    lib: {
+      entry: "./src/index.ts",
+      name: "UIComponents",
+      fileName: "index",
+      formats: ["es", "cjs"],
+    },
+    rollupOptions: {
+      // Evita incluir essas libs no bundle
+      external: [
+        "react",
+        "react-dom",
+        "@mui/material",
+        "@emotion/react",
+        "@emotion/styled",
+      ],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
+    },
+  },
   test: {
     globals: true,
     environment: "jsdom",
