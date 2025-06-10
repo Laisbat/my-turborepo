@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -11,6 +14,7 @@ jobs:
   bundle-size:
     name: Bundle Size
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -27,9 +31,11 @@ jobs:
         uses: andresz1/size-limit-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
   release:
     name: Release
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -49,7 +55,6 @@ jobs:
         #   id: changesets
         #   uses: changesets/action@v1
         #   with:
-        #     # This expects you to have a script called release which does a build for your packages and calls changeset publish
         #     publish: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -57,5 +62,4 @@ jobs:
 
       # - name: Send a Slack notification if a publish happens
       #   if: steps.changesets.outputs.published == 'true'
-      #   # You can do something when a publish happens.
       #   run: my-slack-bot send-notification --message "A new version of ${GITHUB_REPOSITORY} was published!"
