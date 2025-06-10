@@ -1,6 +1,6 @@
 {
   "name": "@repo/ui",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "sideEffects": false,
   "license": "MIT",
   "description": "UI components for the repository",
@@ -13,7 +13,7 @@
     }
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsc && vite build",
     "dev": "tsup --watch",
     "lint": "eslint . --max-warnings 0",
     "format": "prettier --check .",
