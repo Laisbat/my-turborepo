@@ -1,4 +1,5 @@
 {
+  "name": "design-system",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -9,7 +10,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build --filter=docs^... && changeset publish",
+    "release": "turbo run build --filter=apps/docs^... && changeset publish",
     "storybook:build": "turbo run storybook:build --workspace=apps/docs",
     "preview-storybook": "npm run dev --workspace=apps/docs",
     "test": "turbo run test --filter=@repo/ui"
@@ -20,7 +21,6 @@
     "prettier-plugin-tailwindcss": "^0.6.12",
     "turbo": "^2.5.4"
   },
-  "name": "design-system",
   "workspaces": [
     "apps/*",
     "packages/*"
