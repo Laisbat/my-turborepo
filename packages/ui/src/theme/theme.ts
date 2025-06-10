@@ -12,6 +12,30 @@ import CaixaRegularWoff2 from "../assets/fonts/CAIXAStd-Regular.woff2";
 import CaixaSemiBoldWoff2 from "../assets/fonts/CAIXAStd-SemiBold.woff2";
 import CaixaSemiBoldItalicWoff2 from "../assets/fonts/CAIXAStd-SemiBoldItalic.woff2";
 
+declare module "@mui/material/styles" {
+  interface Theme {
+    gradients: Record<string, string>;
+    opacities: {
+      bg: Record<string, number>;
+      text: Record<string, number>;
+    };
+    custom: {
+      colors: Record<string, string>;
+    };
+  }
+
+  interface ThemeOptions {
+    gradients?: Record<string, string>;
+    opacities?: {
+      bg: Record<string, number>;
+      text: Record<string, number>;
+    };
+    custom?: {
+      colors?: Record<string, string>;
+    };
+  }
+}
+
 export const baseTheme = createTheme({
   typography: {
     fontFamily: "Caixa, sans-serif, Arial",
