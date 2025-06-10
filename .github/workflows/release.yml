@@ -24,7 +24,7 @@ jobs:
         run: corepack enable
 
       - name: Install Correct Yarn Version
-        run: corepack prepare yarn@npm@11.2.0 --activate
+        run: corepack prepare yarn@npm@3.3.1 --activate
 
       - name: Install Dependencies
         run: yarn
