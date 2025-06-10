@@ -10,20 +10,28 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    // "release": "turbo run build && changeset publish",
     "storybook:build": "turbo run storybook:build --workspace=apps/docs",
     "preview-storybook": "npm run dev --workspace=apps/docs",
+    "size": "size-limit",
     "test": "turbo run test --filter=@repo/ui"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
+    "@size-limit/preset-app": "^11.2.0",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.6.12",
+    "size-limit": "^11.2.0",
     "turbo": "^2.5.4"
   },
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
-  "packageManager": "npm@11.2.0"
+  "packageManager": "npm@11.2.0",
+  "size-limit": [
+    {
+      "path": "dist/index.js",
+      "limit": "4500 ms"
+    }
+  ]
 }
