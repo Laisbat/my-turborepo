@@ -1,30 +1,28 @@
-import { createTheme, ThemeProvider } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
 import { fireEvent, render, screen } from "@testing-library/react";
+import { baseTheme } from "../../theme";
 import { Button } from "./index";
 
-const customTheme = createTheme({
-  custom: {
-    colors: {
-      "bt-primary": "#123456",
-      "bt-outlined": "#654321",
-    },
-  },
-} as any); // 'as any' para ignorar o erro de tipos do MUI
-
-describe("Button com tema customizado", () => {
+describe("#Button com tema customizado", () => {
   it("usa custom.colors do tema para cor e borda", () => {
     render(
-      <ThemeProvider theme={customTheme}>
+      <ThemeProvider theme={baseTheme}>
         <Button variant="outlined">Custom Outlined</Button>
       </ThemeProvider>,
     );
     const btn = screen.getByRole("button", { name: "Custom Outlined" });
-    // Aqui você pode testar o estilo, se quiser
+
     expect(btn).toBeInTheDocument();
+    expect(btn).toHaveClass("MuiButton-outlined");
+    expect(btn).toHaveStyle({
+      backgroundColor: baseTheme.palette.common.white,
+      color: baseTheme.custom?.colors?.["bt-outlined"],
+      border: `1px solid ${baseTheme.custom?.colors?.["bt-outlined"]}`,
+    });
   });
 });
 
-describe("Button", () => {
+describe("#Button", () => {
   it("renderiza o texto corretamente", () => {
     render(<Button>Click me</Button>);
     expect(
