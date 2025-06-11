@@ -3,13 +3,11 @@ import { Button as MuiButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 const CustomButton = styled(MuiButton, {
-  shouldForwardProp: (prop) => prop !== "color" && prop !== "variant",
+  shouldForwardProp: (prop) => prop !== "color",
 })(({ theme, color = "primary", variant }) => {
   const isOutlined = variant === "outlined";
-  const colorToken =
-    theme.custom?.colors?.[`bt-${color}`] || theme.palette.secondary.main;
-  const outlinedColor =
-    theme.custom?.colors?.[`bt-outlined`] || theme.palette.primary.main;
+  const colorToken = theme.custom?.colors?.[`bt-${color}`];
+  const outlinedColor = theme.custom?.colors?.[`bt-outlined`];
 
   return {
     padding: "8px 16px",
@@ -43,3 +41,5 @@ export const Button = ({
     </CustomButton>
   );
 };
+
+export default Button;
