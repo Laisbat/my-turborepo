@@ -146,7 +146,7 @@ export const baseTheme = createTheme({
       dark: "#004075",
     },
     secondary: {
-      main: "#F39200",
+      main: "#D87B00",
       light: "#FFA829",
       dark: "#C27300",
     },
@@ -189,7 +189,12 @@ export const baseTheme = createTheme({
   },
   custom: {
     colors: {
+      "bt-primary": "#D87B00",
+      "bt-secondary": "#005CA9",
+      "bt-outlined": "#005CA9",
+      neutral: "#FFFFFF",
       "primary-lighter": "#0F92FF",
+      "primary-highlight": "#005CA9",
       "primary-darker": "#002442",
       "secondary-lighter": "#FFBD5C",
       "secondary-darker": "#8F5500",

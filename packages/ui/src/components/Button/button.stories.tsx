@@ -2,11 +2,41 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Button } from ".";
 
 const meta: Meta<typeof Button> = {
+  title: "Components/Botoes",
+  tags: ["autodocs"],
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component: "Um simples botao que pode ser usado em vários contextos.",
+      },
+    },
+  },
+
   component: Button,
   argTypes: {
+    children: {
+      control: { type: "text" },
+      description: "Texto ou conteúdo do botão.",
+    },
     type: {
-      control: { type: "radio" },
+      control: { type: "text" },
       options: ["button", "submit", "reset"],
+    },
+    color: {
+      control: { type: "select" },
+      options: ["primary", "secondary", "error", "warning", "info", "success"],
+      description: "Define a cor do botão.",
+    },
+    variant: {
+      control: { type: "select" },
+      options: ["contained", "outlined", "text"],
+      description: "Define o estilo visual do botão.",
+    },
+    size: {
+      control: { type: "select" },
+      options: ["small", "medium", "large"],
+      description: "Define o tamanho do botão.",
     },
   },
 };
@@ -20,6 +50,8 @@ type Story = StoryObj<typeof Button>;
  * See https://storybook.js.org/docs/react/api/csf
  * to learn how to use render functions.
  */
+
+// Story for primary button
 export const Primary: Story = {
   render: (props) => (
     <Button
@@ -29,18 +61,56 @@ export const Primary: Story = {
         alert("Hello from Turborepo!");
       }}
     >
-      Hello
+      {props.children}
     </Button>
   ),
-  name: "Button",
+  name: "Primary",
   args: {
-    children: "Hello",
+    children: "Avançar",
+    color: "primary",
+    size: "medium",
+    disabled: false,
     type: "button",
-    style: {
-      color: "blue",
-      border: "1px solid gray",
-      padding: 10,
-      borderRadius: 10,
-    },
+  },
+};
+
+// Story for secondary button
+export const Secondary: Story = {
+  render: (props) => (
+    <Button
+      {...props}
+      onClick={(): void => {
+        // eslint-disable-next-line no-alert -- alert for demo
+        alert("Hello from Turborepo!");
+      }}
+    />
+  ),
+  name: " Secondary",
+  args: {
+    children: "Prosseguir",
+    color: "secondary",
+    size: "medium",
+    disabled: false,
+    type: "button",
+  },
+};
+
+// Outlined Button Story
+export const Outlined: Story = {
+  render: (props) => (
+    <Button
+      {...props}
+      onClick={(): void => {
+        // eslint-disable-next-line no-alert -- alert for demo
+        alert("Hello from Turborepo!");
+      }}
+    />
+  ),
+  args: {
+    children: "Voltar",
+    size: "medium",
+    disabled: false,
+    type: "button",
+    variant: "outlined",
   },
 };
