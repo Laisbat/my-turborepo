@@ -38,15 +38,18 @@ declare module "@mui/material/styles" {
 
 export const baseTheme = createTheme({
   typography: {
+    subtitle1: {
+      fontWeight: 600,
+    },
     fontFamily: "Caixa, sans-serif, Arial",
-    h1: { fontSize: "2.5rem" },
-    h2: { fontSize: "2rem" },
-    h3: { fontSize: "1.75rem" },
-    h4: { fontSize: "1.5rem" },
-    h5: { fontSize: "1.25rem" },
-    h6: { fontSize: "1rem" },
-    body1: { fontSize: "0.875rem" },
-    body2: { fontSize: "0.812rem" },
+    h1: { fontSize: "2.5rem" }, // 40px
+    h2: { fontSize: "2rem" }, // 32px
+    h3: { fontSize: "1.75rem" }, // 28px
+    h4: { fontSize: "1.5rem" }, // 24px
+    h5: { fontSize: "1.25rem" }, // 20px
+    h6: { fontSize: "1rem" }, // 16px
+    body1: { fontSize: "0.875rem" }, // 14px
+    body2: { fontSize: "0.812rem" }, // 13px
   },
   components: {
     MuiCssBaseline: {
@@ -151,7 +154,7 @@ export const baseTheme = createTheme({
       dark: "#C27300",
     },
     success: {
-      main: "#008254",
+      main: "#0D581C",
       light: "#00B273",
       dark: "#004D31",
     },
@@ -166,7 +169,7 @@ export const baseTheme = createTheme({
       dark: "#CCA600",
     },
     info: {
-      main: "#143DA6",
+      main: "#038299",
       light: "#194DD1",
       dark: "#0E2B76",
     },
@@ -183,7 +186,7 @@ export const baseTheme = createTheme({
       500: "#3A4859",
       600: "#4E6178",
       700: "#637A97",
-      800: "#262F3B",
+      800: "#22292E",
       900: "#12161C",
     },
   },

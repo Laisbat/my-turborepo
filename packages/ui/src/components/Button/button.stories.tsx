@@ -3,6 +3,7 @@ import { Button } from ".";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Botoes",
+  component: Button,
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
@@ -13,7 +14,6 @@ const meta: Meta<typeof Button> = {
     },
   },
 
-  component: Button,
   argTypes: {
     children: {
       control: { type: "text" },
