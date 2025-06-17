@@ -3,10 +3,10 @@ import { describe, test, expect } from 'vitest';
 import  Stepper from './';
 
 const steps = [
-  { label: 'Login' },
-  { label: 'Informações Pessoais' },
-  { label: 'Revisar' },
-  { label: 'Finalizar' },
+    { label: 'Passo 1' },
+    { label: 'Passo 2' },
+    { label: 'Passo 3' },
+    { label: 'Passo 4' },
 ];
 
 describe('Stepper', () => {
