@@ -4,7 +4,7 @@ import ModalCaixa from ".";
 import Button from "../Button";
 
 const meta: Meta<typeof ModalCaixa> = {
-  title: "Components/ModalCaixa",
+  title: "Componentes/ModalCaixa",
   component: ModalCaixa,
   tags: ["autodocs"],
   parameters: {
@@ -33,7 +33,7 @@ export default meta;
 type Story = StoryObj<typeof ModalCaixa>;
 
 export const Default: Story = {
-  render: (args) => {
+  render: () => {
     const [open, setOpen] = useState(false);
     return (
       <>
@@ -57,7 +57,7 @@ export const Default: Story = {
 };
 
 export const ModalAlerta: Story = {
-  render: (args) => {
+  render: () => {
     const [open, setOpen] = useState(false);
     return (
       <>
