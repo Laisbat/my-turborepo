@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
+import Check from "@mui/icons-material/Check";
 import {
+  Box,
+  Button,
   Stepper as MuiStepper,
   Step,
-  StepLabel,
   StepConnector,
-  Button,
-  Box,
   type StepIconProps,
+  StepLabel,
   Typography,
-} from '@mui/material';
-import Check from '@mui/icons-material/Check';
-// import { styled } from '@mui/material/styles';
-import type { CustomStepperProps } from './stepper.types';
-
+} from "@mui/material";
+import React, { useState } from "react";
+import type { CustomStepperProps } from "./stepper.types";
 
 const CustomStepIcon = (props: StepIconProps) => {
   const { active, completed, icon } = props;
@@ -20,14 +18,18 @@ const CustomStepIcon = (props: StepIconProps) => {
   return (
     <Box
       sx={{
-        display: 'flex',
+        display: "flex",
         width: 24,
         height: 24,
-        borderRadius: '50%',
-        backgroundColor: completed ? 'primary.main' : active ? 'primary.main' : 'grey.400',
-        color: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        borderRadius: "50%",
+        backgroundColor: completed
+          ? "primary.main"
+          : active
+            ? "primary.main"
+            : "grey.400",
+        color: "#fff",
+        alignItems: "center",
+        justifyContent: "center",
         fontSize: 14,
       }}
     >
@@ -79,11 +81,8 @@ const Stepper: React.FC<CustomStepperProps> = ({
         >
           Voltar
         </Button>
-        <Button
-          variant="contained"
-          onClick={handleNext}
-        >
-          {activeStep === steps.length - 1 ? 'Finalizar' : 'Próximo'}
+        <Button variant="contained" onClick={handleNext}>
+          {activeStep === steps.length - 1 ? "Finalizar" : "Próximo"}
         </Button>
       </Box>
 

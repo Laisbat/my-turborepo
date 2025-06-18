@@ -1,0 +1,15 @@
+export * as fa from "react-icons/fa";
+export * as fa6 from "react-icons/fa6";
+export * from "./IconeAeronaveFrente";
+export * from "./IconeAeronaveLado";
+export * from "./IconeAniversario";
+export * from "./IconeAssembleia";
+export * from "./IconeAssistencia";
+export * from "./IconeAssistenciaCare";
+export * from "./IconeAssistenciaSinistro";
+export * from "./IconeAtencaoDica";
+export * from "./IconeAtendimentoLibras";
+export * from "./IconeCalendario";
+export * from "./IconeCaminhaoFrente";
+export * from "./IconeCaminhaoFrota";
+export * from "./IconeEmbarcacaoLado";
