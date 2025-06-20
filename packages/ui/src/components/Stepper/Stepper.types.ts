@@ -1,5 +1,6 @@
 export type StepperStep = {
   label: string;
+    editable?: boolean;
 };
 
 export type CustomStepperProps = {
