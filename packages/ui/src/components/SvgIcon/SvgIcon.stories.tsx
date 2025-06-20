@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import SvgIcon from ".";
 import IconeAeronaveLado from "../../assets/icons/IconeAeronaveLado";
-import IconeAtencaoDica from "../../assets/icons/IconeAtencaoDica";
 import IconeEmbarcacaoLado from "../../assets/icons/IconeEmbarcacaoLado";
 
 const meta: Meta<typeof SvgIcon> = {
@@ -10,7 +9,7 @@ const meta: Meta<typeof SvgIcon> = {
   args: {
     icon: <IconeEmbarcacaoLado />,
     color: "currentColor",
-    size: 24,
+    size: 30,
   },
   argTypes: {
     color: { control: "color" },
@@ -23,8 +22,8 @@ type Story = StoryObj<typeof SvgIcon>;
 
 export const Default: Story = {
   args: {
-    icon: <IconeAtencaoDica />,
-    color: "#89c15d",
+    icon: <IconeEmbarcacaoLado />,
+    color: "#d737d0",
   },
 };
 

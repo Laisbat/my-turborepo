@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import type { CustomStepperProps } from "./stepper.types";
+import type { CustomStepperProps } from "./Stepper.types";
 
 const CustomStepIcon = (props: StepIconProps) => {
   const { active, completed, icon } = props;
