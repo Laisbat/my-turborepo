@@ -9,7 +9,7 @@ interface SvgIconProps {
 
 const SvgIcon = ({
   icon,
-  color,
+  color = "currentColor",
   size = 24,
   testid = "svg-icon",
 }: SvgIconProps) => {
