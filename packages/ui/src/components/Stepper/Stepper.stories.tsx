@@ -11,9 +11,9 @@ export default meta;
 type Story = StoryObj<typeof Stepper>;
 
 const steps = [
-  { label: "Passo 1" },
-  { label: "Passo 2" },
-  { label: "Passo 3" },
+  { label: "Passo 1" , editable: true},
+  { label: "Passo 2", editable: true },
+  { label: "Passo 3", },
   { label: "Passo 4" },
 ];
 

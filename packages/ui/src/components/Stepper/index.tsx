@@ -1,42 +1,17 @@
 import Check from "@mui/icons-material/Check";
+import Edit from "@mui/icons-material/Edit";
 import {
   Box,
   Button,
   Stepper as MuiStepper,
   Step,
   StepConnector,
-  type StepIconProps,
   StepLabel,
   Typography,
+  type StepIconProps,
 } from "@mui/material";
 import React, { useState } from "react";
 import type { CustomStepperProps } from "./Stepper.types";
-
-const CustomStepIcon = (props: StepIconProps) => {
-  const { active, completed, icon } = props;
-
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        width: 24,
-        height: 24,
-        borderRadius: "50%",
-        backgroundColor: completed
-          ? "primary.main"
-          : active
-            ? "primary.main"
-            : "grey.400",
-        color: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: 14,
-      }}
-    >
-      {completed ? <Check fontSize="small" /> : icon}
-    </Box>
-  );
-};
 
 const Stepper: React.FC<CustomStepperProps> = ({
   steps,
@@ -57,6 +32,38 @@ const Stepper: React.FC<CustomStepperProps> = ({
     setActiveStep((prev) => Math.max(prev - 1, 0));
   };
 
+  const CustomStepIcon =
+    (stepIndex: number, editable?: boolean) => (props: StepIconProps) => {
+      const { active, completed, icon } = props;
+
+      const isEditableStep = editable && completed && stepIndex !== activeStep;
+
+      return (
+        <Box
+          sx={{
+            display: "flex",
+            width: 24,
+            height: 24,
+            borderRadius: "50%",
+            backgroundColor:
+              completed || active ? "primary.main" : "grey.200",
+            color: "#fff",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 14,
+          }}
+        >
+          {isEditableStep ? (
+            <Edit fontSize="small" />
+          ) : completed ? (
+            <Check fontSize="small" />
+          ) : (
+            icon
+          )}
+        </Box>
+      );
+    };
+
   return (
     <Box>
       <MuiStepper
@@ -64,13 +71,28 @@ const Stepper: React.FC<CustomStepperProps> = ({
         alternativeLabel
         connector={<StepConnector />}
       >
-        {steps.map((step, index) => (
-          <Step key={index} completed={index < activeStep}>
-            <StepLabel StepIconComponent={CustomStepIcon}>
-              {step.label}
-            </StepLabel>
-          </Step>
-        ))}
+        {steps.map((step, index) => {
+          const isEditable = step.editable;
+
+          return (
+            <Step
+              key={index}
+              completed={index < activeStep}
+              onClick={() => {
+                if (isEditable && index < activeStep) {
+                  setActiveStep(index);
+                }
+              }}
+              sx={{
+                cursor: isEditable && index < activeStep ? "pointer" : "default",
+              }}
+            >
+              <StepLabel StepIconComponent={CustomStepIcon(index, isEditable)}>
+                {step.label}
+              </StepLabel>
+            </Step>
+          );
+        })}
       </MuiStepper>
 
       <Box mt={4} display="flex" justifyContent="center" gap={2}>
