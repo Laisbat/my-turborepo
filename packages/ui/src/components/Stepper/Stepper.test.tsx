@@ -4,12 +4,12 @@ import Stepper from './';
 
 const steps = [
   { label: "Passo 1", editable: true },
-  { label: "Passo 2", editable: true },
+  { label: "Passo 2", editable: false },
   { label: "Passo 3", },
   { label: "Passo 4" },
 ];
 
-describe('Stepper', () => {
+describe('#Stepper', () => {
   test('renderiza os labels dos passos', () => {
     render(<Stepper steps={steps} initialStep={0} />);
 
@@ -36,5 +36,22 @@ describe('Stepper', () => {
     fireEvent.click(finishButton);
 
     expect(onFinish).toHaveBeenCalledTimes(1);
+  });
+
+  test("handleBack decrementa activeStep ", () => {
+    render(<Stepper steps={steps} />);
+    fireEvent.click(screen.getByText("Próximo"));
+    const backButton = screen.getByText("Voltar");
+    expect(backButton).not.toBeDisabled();
+    fireEvent.click(backButton);
+    expect(screen.getByText(/Etapa 1 de 4/)).toBeInTheDocument();
+  });
+
+  test("clica em step editável já concluído volta para o step", () => {
+    render(<Stepper steps={steps} />);
+    fireEvent.click(screen.getByText("Próximo"));
+    const step1 = screen.getByText("Passo 1");
+    fireEvent.click(step1);
+    expect(screen.getByText(/Etapa 1 de 4/)).toBeInTheDocument();
   });
 });

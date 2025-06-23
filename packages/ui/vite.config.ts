@@ -48,6 +48,8 @@ export default defineConfig({
         "**/theme/**",
         "**/tests/**",
         "*/index.ts",
+        "**/*.types.ts",
+        "**/assets/**",
       ],
     },
   },
