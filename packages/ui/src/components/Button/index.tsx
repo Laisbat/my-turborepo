@@ -16,6 +16,7 @@ const CustomButton = styled(MuiButton, {
     backgroundColor: isOutlined ? theme.palette.common.white : colorToken,
     color: isOutlined ? outlinedColor : theme.palette.common.white,
     border: isOutlined ? `1px solid ${outlinedColor}` : "none",
+    borderRadius: theme.shape.borderRadius,
     "&:hover:not(.Mui-disabled)": {
       filter: "brightness(0.8)",
     },

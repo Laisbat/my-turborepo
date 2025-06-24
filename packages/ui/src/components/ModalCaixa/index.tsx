@@ -20,10 +20,7 @@ interface ModalCaixaProps {
 
 const StyledDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-paper": {
-    borderRadius:
-      typeof theme.shape.borderRadius === "number"
-        ? theme.shape.borderRadius * 2
-        : `calc(${theme.shape.borderRadius} * 2)`,
+    borderRadius: theme.shape.borderRadius,
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[8],
   },

@@ -33,7 +33,7 @@ export const Alerta = ({
             outlined: theme.palette?.grey?.[100],
             standard: theme.palette?.grey?.[50],
           }[variant || "filled"],
-          borderLeft: `8px solid ${theme.palette[severity]?.main}`,
+          borderLeft: `12px solid ${theme.palette[severity]?.main} !important`,
           boxShadow: "none",
           color: theme.palette?.grey?.[800],
           border: `2px solid ${theme.palette[severity]?.main}`,

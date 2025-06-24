@@ -12,7 +12,7 @@ const meta: Meta<typeof ModalCaixa> = {
     docs: {
       description: {
         component:
-          "Um modal estilizado para uso em aplicações que seguem o design do CAIXA Consórcios.",
+          "Um modal estilizado para uso em aplicações que seguem o design do CAIXA Consórcio.",
       },
     },
   },
@@ -42,8 +42,9 @@ export const Default: Story = {
         </Button>
         <ModalCaixa
           open={open}
+          closeIcon={true}
           onClose={() => setOpen(false)}
-          title="CAIXA Consórcios"
+          title="CAIXA Consórcio"
           children={
             <>
               <p>Teste</p>
@@ -67,7 +68,7 @@ export const ModalAlerta: Story = {
         <ModalCaixa
           open={open}
           onClose={() => setOpen(false)}
-          title="CAIXA Consórcios"
+          title="CAIXA Consórcio"
           children={
             <>
               <p>Teste</p>

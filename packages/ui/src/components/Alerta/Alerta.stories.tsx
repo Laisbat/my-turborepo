@@ -35,7 +35,7 @@ type Story = StoryObj<typeof Alerta>;
 
 export const Default: Story = {
   args: {
-    children: "Este é um alerta de sucesso",
+    children: "Este é um alerta de sucesso.",
     severity: "success",
   },
   render: (args: AlertProps) => (
@@ -47,20 +47,19 @@ export const Default: Story = {
 
 export const Error: Story = {
   args: {
-    children: "This is an error alert",
+    children: "Este é um alerta de error.",
     severity: "error",
-    variant: "filled",
   },
   render: (args: AlertProps) => (
     <Stack sx={{ width: "100%" }} spacing={2}>
-      <Alerta {...args} variant="filled" />
+      <Alerta {...args} variant="outlined" />
     </Stack>
   ),
 };
 
 export const Warning: Story = {
   args: {
-    children: "This is a warning alert",
+    children: "Este é um alerta de aviso.",
     severity: "warning",
   },
   render: (args: AlertProps) => (
@@ -72,7 +71,7 @@ export const Warning: Story = {
 
 export const Info: Story = {
   args: {
-    children: "This is an info alert",
+    children: "Este é um alerta de informação.",
     severity: "info",
   },
   render: (args: AlertProps) => (
