@@ -5,3 +5,4 @@ export * from "./components/RadioButton";
 export * from "./components/Stepper";
 export * from "./components/SvgIcon";
 export * from "./assets/icons";
+export * from './components/Input';
