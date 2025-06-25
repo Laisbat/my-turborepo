@@ -6,5 +6,6 @@ export type StepperStep = {
 export type CustomStepperProps = {
   steps: StepperStep[];
   initialStep?: number;
+  showConnector?: boolean;
   onFinish?: () => void;
 };
