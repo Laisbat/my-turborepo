@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Alerta } from "./index";
 
 const meta: Meta<typeof Alerta> = {
-  title: "Componentes/Alerta",
+  title: "Design System/Componentes/Alerta",
   component: Alerta,
   tags: ["autodocs"],
   argTypes: {

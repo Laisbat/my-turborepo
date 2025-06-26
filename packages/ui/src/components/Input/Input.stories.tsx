@@ -5,7 +5,7 @@ import FormattedInput from '.';
 import type { FormattedInputProps } from './Input.types';
 
 const meta: Meta<typeof FormattedInput> = {
-    title: 'Componentes/Input',
+    title: 'Design System/Componentes/Input',
     component: FormattedInput,
     tags: ['autodocs'],
 };

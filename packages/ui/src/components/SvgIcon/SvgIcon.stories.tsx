@@ -4,7 +4,7 @@ import IconeAeronaveLado from "../../assets/icons/IconeAeronaveLado";
 import IconeEmbarcacaoLado from "../../assets/icons/IconeEmbarcacaoLado";
 
 const meta: Meta<typeof SvgIcon> = {
-  title: "Componentes/SvgIcon",
+  title: "Design System/Componentes/SvgIcon",
   component: SvgIcon,
   args: {
     icon: <IconeEmbarcacaoLado />,
