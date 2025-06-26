@@ -4,7 +4,7 @@ import ModalCaixa from ".";
 import Button from "../Button";
 
 const meta: Meta<typeof ModalCaixa> = {
-  title: "Componentes/ModalCaixa",
+  title: "Design System/Componentes/ModalCaixa",
   component: ModalCaixa,
   tags: ["autodocs"],
   parameters: {
