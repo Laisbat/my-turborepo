@@ -3,7 +3,7 @@ import { Table } from '.';
 import type { Column } from './Table.types';
 
 const meta: Meta<typeof Table> = {
-  title: 'Componentes/Table',
+  title: 'Design System/Componentes/Table',
   component: Table,
   tags: ['autodocs'],
   parameters: {
