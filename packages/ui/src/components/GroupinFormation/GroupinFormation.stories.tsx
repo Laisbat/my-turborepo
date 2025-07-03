@@ -22,6 +22,10 @@ type Story = StoryObj<typeof GroupinFormation>;
 export const Default: Story = {
   args: {
     isClicked: false,
+    isDisabledButton: false,
+    numberMaxQtd: 3,
+    creditValue: 49900.33,
+    parcelValues: 387.2
   },
 
   render: (args: GroupinFormationProps) => <GroupinFormation {...args} />,
