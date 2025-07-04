@@ -1,13 +1,14 @@
 import React, { useRef, useState } from 'react';
 import {
     Box,
-    Button,
     Typography,
 } from '@mui/material';
+import Button from '../Button';
 
 const FileUploadPreview: React.FC = () => {
     const [fileUrl, setFileUrl] = useState<string | null>(null);
     const [fileName, setFileName] = useState<string | null>(null);
+    const [fileType, setFileType] = useState<string | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,6 +16,8 @@ const FileUploadPreview: React.FC = () => {
         if (!file) return;
 
         setFileName(file.name);
+        setFileType(file.type);
+
         const url = URL.createObjectURL(file);
         setFileUrl(url);
     };
@@ -39,28 +42,50 @@ const FileUploadPreview: React.FC = () => {
                 p: 1,
                 cursor: 'pointer',
             }}
-            onClick={handleBoxClick}>
-            <input ref={fileInputRef} type="file" hidden onChange={handleFileChange} />
+            onClick={handleBoxClick}
+        >
+            <input
+                ref={fileInputRef}
+                type="file"
+                hidden
+                accept="image/*,application/pdf"
+                onChange={handleFileChange}
+            />
 
             <Box
                 sx={{
-                    flexGrow: 1, width: '100%', display: 'flex', alignItems: 'center',
-                    justifyContent: 'center', pointerEvents: 'none',
+                    flexGrow: 1,
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    pointerEvents: 'none',
+                    overflow: 'hidden',
                 }}
             >
                 {fileUrl ? (
-                    fileUrl.endsWith('.pdf') ? (
-                        <iframe
+                    fileType === 'application/pdf' ? (
+                        <embed
                             src={fileUrl}
+                            type="application/pdf"
                             width="100%"
                             height="100%"
-                            style={{ border: 'none' }}
+                            style={{
+                                border: 'none',
+                                overflow: 'hidden',
+                            }}
                         />
                     ) : (
-                        <img
+                        <Box
+                            component="img"
                             src={fileUrl}
                             alt={fileName || 'Preview'}
-                            style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+                            sx={{
+                                maxWidth: '100%',
+                                maxHeight: '100%',
+                                objectFit: 'contain',
+                            }}
                         />
                     )
                 ) : (
@@ -69,6 +94,7 @@ const FileUploadPreview: React.FC = () => {
                     </Button>
                 )}
             </Box>
+
 
             {fileUrl && fileName && (
                 <Typography
