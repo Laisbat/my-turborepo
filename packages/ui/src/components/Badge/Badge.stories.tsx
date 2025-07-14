@@ -61,3 +61,9 @@ export const DotVariant: Story = {
     children: <MailIcon fontSize="large" />,
   },
 };
+export const Text: Story = {
+  args: {
+    badgeContent: 'Texto',
+    color: 'success',
+  },
+};

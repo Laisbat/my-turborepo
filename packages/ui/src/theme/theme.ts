@@ -144,7 +144,7 @@ export const baseTheme = createTheme({
   },
   palette: {
     primary: {
-      main: "#005CA9",
+      main: "#005CA9", 
       light: "#0077DB",
       dark: "#004075",
     },
@@ -159,7 +159,7 @@ export const baseTheme = createTheme({
       dark: "#004D31",
     },
     error: {
-      main: "#900000",
+      main: "#B22C2C",
       light: "#C20000",
       dark: "#5C0000",
     },
@@ -192,8 +192,9 @@ export const baseTheme = createTheme({
   },
   custom: {
     colors: {
-      "bt-primary": "#D87B00",
+      "bt-primary": "#D87B00", 
       "bt-secondary": "#005CA9",
+      "bt-error": "#B22C2C",
       "bt-outlined": "#005CA9",
       neutral: "#FFFFFF",
       "primary-lighter": "#0F92FF",

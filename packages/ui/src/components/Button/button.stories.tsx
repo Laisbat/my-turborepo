@@ -95,6 +95,26 @@ export const Secondary: Story = {
   },
 };
 
+export const Danger: Story = {
+  render: (props) => (
+    <Button
+      {...props}
+      onClick={(): void => {
+        // eslint-disable-next-line no-alert -- alert for demo
+        alert("Hello from Turborepo!");
+      }}
+    />
+  ),
+  name: "Danger",
+  args: {
+    children: "Prosseguir",
+    color: "error",
+    size: "medium",
+    disabled: false,
+    type: "button",
+  },
+};
+
 // Outlined Button Story
 export const Outlined: Story = {
   render: (props) => (
