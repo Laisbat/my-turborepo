@@ -14,10 +14,8 @@ const FileUploadPreview: React.FC = () => {
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
         if (!file) return;
-
         setFileName(file.name);
         setFileType(file.type);
-
         const url = URL.createObjectURL(file);
         setFileUrl(url);
     };

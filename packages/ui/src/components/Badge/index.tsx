@@ -22,6 +22,7 @@ const Badge: React.FC<CustomBadgeProps> = ({
             max={max}
             invisible={invisible}
             showZero={showZero}
+            sx={{height: '16px', fontSize: '12px', pl: '4px', pr: '4px'}}
             {...props}
         >
             {children}
