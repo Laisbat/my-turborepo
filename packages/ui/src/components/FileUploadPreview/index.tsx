@@ -1,28 +1,35 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
     Box,
     Typography,
 } from '@mui/material';
 import Button from '../Button';
+import type { FileUploadPreviewProps } from './FileUploadPreview.types';
 
-const FileUploadPreview: React.FC = () => {
-    const [fileUrl, setFileUrl] = useState<string | null>(null);
-    const [fileName, setFileName] = useState<string | null>(null);
-    const [fileType, setFileType] = useState<string | null>(null);
+const FileUploadPreview: React.FC<FileUploadPreviewProps> = ({ onFileChange, disabled = false, file }) => {
     const fileInputRef = useRef<HTMLInputElement>(null);
+    const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const file = event.target.files?.[0];
-        if (!file) return;
-        setFileName(file.name);
-        setFileType(file.type);
-        const url = URL.createObjectURL(file);
-        setFileUrl(url);
+        const selected = event.target.files?.[0];
+        if (!selected) return;
+        onFileChange?.(selected);
     };
 
     const handleBoxClick = () => {
-        fileInputRef.current?.click();
+        if (!disabled) fileInputRef.current?.click();
     };
+
+    useEffect(() => {
+        if (file) {
+            const url = URL.createObjectURL(file);
+            setPreviewUrl(url);
+
+            return () => URL.revokeObjectURL(url); 
+        } else {
+            setPreviewUrl(null);
+        }
+    }, [file]);
 
     return (
         <Box
@@ -35,10 +42,10 @@ const FileUploadPreview: React.FC = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: fileUrl ? 'space-between' : 'center',
+                justifyContent: file ? 'space-between' : 'center',
                 bgcolor: '#f9f9f9',
                 p: 1,
-                cursor: 'pointer',
+                cursor: disabled ? 'not-allowed' : 'pointer',
             }}
             onClick={handleBoxClick}
         >
@@ -48,6 +55,7 @@ const FileUploadPreview: React.FC = () => {
                 hidden
                 accept="image/*,application/pdf"
                 onChange={handleFileChange}
+                disabled={disabled}
             />
 
             <Box
@@ -62,29 +70,11 @@ const FileUploadPreview: React.FC = () => {
                     overflow: 'hidden',
                 }}
             >
-                {fileUrl ? (
-                    fileType === 'application/pdf' ? (
-                        <embed
-                            src={fileUrl}
-                            type="application/pdf"
-                            width="100%"
-                            height="100%"
-                            style={{
-                                border: 'none',
-                                overflow: 'hidden',
-                            }}
-                        />
+                {previewUrl ? (
+                    file?.type === 'application/pdf' ? (
+                        <embed src={previewUrl} type="application/pdf" width="100%" height="100%" />
                     ) : (
-                        <Box
-                            component="img"
-                            src={fileUrl}
-                            alt={fileName || 'Preview'}
-                            sx={{
-                                maxWidth: '100%',
-                                maxHeight: '100%',
-                                objectFit: 'contain',
-                            }}
-                        />
+                        <Box component="img" src={previewUrl} alt={file?.name} sx={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
                     )
                 ) : (
                     <Button variant="contained" size="small" component="span">
@@ -93,19 +83,9 @@ const FileUploadPreview: React.FC = () => {
                 )}
             </Box>
 
-
-            {fileUrl && fileName && (
-                <Typography
-                    variant="caption"
-                    sx={{
-                        mt: 1,
-                        wordBreak: 'break-word',
-                        maxWidth: '100%',
-                        textAlign: 'center',
-                        pointerEvents: 'none',
-                    }}
-                >
-                    {fileName}
+            {file && (
+                <Typography variant="caption" sx={{ mt: 1, wordBreak: 'break-word', maxWidth: '100%', textAlign: 'center', pointerEvents: 'none' }}>
+                    {file.name}
                 </Typography>
             )}
         </Box>
