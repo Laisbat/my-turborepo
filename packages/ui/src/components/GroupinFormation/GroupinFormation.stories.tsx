@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import GroupinFormation from ".";
 import type { GroupinFormationProps } from "./GroupinFormation.types";
+import IconeContrato from "../../assets/icons/IconeContrato";
 
 const meta: Meta<typeof GroupinFormation> = {
   title: "Design System/Componentes/GroupinFormation",
@@ -25,7 +26,8 @@ export const Default: Story = {
     isDisabledButton: false,
     numberMaxQtd: 3,
     creditValue: 49900.33,
-    parcelValues: 387.2
+    parcelValues: 387.2,
+    iconPromo: <IconeContrato/>
   },
 
   render: (args: GroupinFormationProps) => <GroupinFormation {...args} />,

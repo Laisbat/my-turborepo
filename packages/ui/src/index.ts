@@ -6,3 +6,8 @@ export * from "./components/Stepper";
 export * from "./components/SvgIcon";
 export * from "./assets/icons";
 export * from './components/Input';
+export * from './components/Colors';
+export * from './components/Accordion';
+export * from './components/Badge';
+export * from './components/CurrencySlider';
+export * from './components/FileUploadPreview';

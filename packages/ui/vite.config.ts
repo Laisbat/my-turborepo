@@ -9,8 +9,8 @@ export default defineConfig({
     lib: {
       entry: "./src/index.ts",
       name: "UIComponents",
-      fileName: "index",
       formats: ["es", "cjs"],
+      fileName: (format) => `ds.${format}.js`,
     },
     rollupOptions: {
       // Evita incluir essas libs no bundle
