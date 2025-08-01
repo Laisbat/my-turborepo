@@ -1,5 +1,0 @@
-{
-  "extends": "@repo/typescript-config/react-library.json",
-  "include": ["src/**/*",".", "vitest.config.ts", "src/theme/theme.d.ts"],
-  "exclude": ["dist", "build"]
-}
