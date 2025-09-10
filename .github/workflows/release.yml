@@ -14,6 +14,8 @@ jobs:
   validate:
     name: Validate Build and Tests
     runs-on: ubuntu-latest
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout Repo
@@ -30,13 +32,21 @@ jobs:
       - name: Build UI Workspace
         run: npm run build --workspace @repo/ui
 
-      - name: Run Unit Tests
-        run: npm test
+      - name: Test with coverage
+        run: npm run test -- --watch=false --code-coverage
+        
+      - name: List coverage files
+        run: ls -la coverage || true
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
 
   release:
     name: Release
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -52,18 +62,11 @@ jobs:
       - name: Build UI Workspace
         run: npm run build --workspace @repo/ui
 
-      - name: Run Unit Tests
-        run: npm test
+      - name: Test with coverage
+        run: npm run test -- --watch=false --code-coverage
+        
+      - name: List coverage files
+        run: ls -la coverage || true
 
-        # - name: Create Release Pull Request or Publish to npm
-        #   id: changesets
-        #   uses: changesets/action@v1
-        #   with:
-        #     publish: npm run release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      # - name: Send a Slack notification if a publish happens
-      #   if: steps.changesets.outputs.published == 'true'
-      #   run: my-slack-bot send-notification --message "A new version of ${GITHUB_REPOSITORY} was published!"
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
